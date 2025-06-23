@@ -1,6 +1,8 @@
 # Product Feature Clustering
 Utilising K-Means clustering to cluster products based on features, price, and reviews to recommend alternatives or group by similarity, using the Amazon Product dataset.
 
+* Whatever I learn and any notes I make are in the notes.txt file *
+
 🔍 Project Description
 This project aims to apply K-Means clustering to group similar products on an e-commerce platform based on their features. In large-scale online stores, customers often face difficulty navigating through a vast number of products. By clustering products based on key attributes (such as price, ratings, reviews, and category), we can:
 - Improve product recommendation systems

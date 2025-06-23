@@ -1,0 +1,39 @@
+NOTES ON K-MEANS:
+--------------------------------------------------------------------------------------------------
+- There are 2 main methods of implementing K-Means:
+    1) Measuring within-cluster variance for every possible cluster where K cluster are needed
+       and there are n datapoints
+    2) Selecting cluster centers and assigning data points to the cluster with closest cluster
+       center and recalculate centers and repeat
+
+Method 1) proves to be very computationally intensive as K and n increase:
+- There are K^n possibilities so eg for K=2 and n=20, there are 1048575 clsuter assignments
+- This exponential increase makes it infeasable for larger datasets or when we need a high
+  number of clusters
+
+Method 2) is used more in implementation. It steps are as follows:
+1) In iteration t=0, select K data points to be initial cluster centers
+    - We need to ensure we choose these centers sensibly otherwise we can face problems later
+      on and get stuck in a local minima when finding our solution
+    - We can do this in 2 ways (and even combine them):
+        a) Randomly select the centers and run the algorithm several times and select the best
+           centers
+        b) Be smart with how we pick centers (eg don't pick points that are too close to one
+           another)
+2) In each iteration, assign each data point to the cluster with closest cluster center in the
+   previous iteration
+    - We break ties by assigning the point to the cluster with lower index. Eg if we have 3
+      clusters K1, K2, K3, and our point p is equidistant to all of their centers, then we assign
+      it to K1 as 1<2<3 so K1 has the lowest index
+3) Recalulcate the cluster centers of each cluster
+    - This is done by just calculating the average of each points x and y co-ordinates
+4) If cluster centers have changed, repeat from step 2), else terminate and return final clusters
+--------------------------------------------------------------------------------------------------
+
+NOTES ON DATA HANDLING:
+--------------------------------------------------------------------------------------------------
+- When selecting features for the dataset to be used, I do not need to keep fields which are human
+  labels
+    - This is because they provide no real benefit to the clustering selection
+- Instead empirical features should be selected as this is what will impact the clusters
+--------------------------------------------------------------------------------------------------
