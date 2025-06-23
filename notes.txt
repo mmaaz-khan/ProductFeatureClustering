@@ -36,4 +36,20 @@ NOTES ON DATA HANDLING:
   labels
     - This is because they provide no real benefit to the clustering selection
 - Instead empirical features should be selected as this is what will impact the clusters
+
+Data Normalisation:
+- All empirical data needs to be on the same scale, else certain features may dominate the
+  learning process
+    - This is especially true in the K-means algorithm as it relies on calculating distances between
+      data points and the cluster center
+    - If different features are on different scales, a feature with a larger scale will dominate
+      this process
+- Some ways of normalisation I have come across:
+    1) Min/Max Normalisation
+        - x' = (x - min) / (max - min)
+    2) Z-Score Normalisation
+        - x' = (x - μ) / σ
+    3) Log Transformation
+        - x' = log(x)
+        - This is especially good for skewed data
 --------------------------------------------------------------------------------------------------
