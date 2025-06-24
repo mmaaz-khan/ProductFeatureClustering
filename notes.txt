@@ -11,7 +11,8 @@ Method 1) proves to be very computationally intensive as K and n increase:
 - This exponential increase makes it infeasable for larger datasets or when we need a high
   number of clusters
 
-Method 2) is used more in implementation. It steps are as follows:
+Method 2) is used more in implementation. It steps are as follows (not this particular implementation
+is known as k-means++):
 1) In iteration t=0, select K data points to be initial cluster centers
     - We need to ensure we choose these centers sensibly otherwise we can face problems later
       on and get stuck in a local minima when finding our solution
@@ -28,6 +29,20 @@ Method 2) is used more in implementation. It steps are as follows:
 3) Recalulcate the cluster centers of each cluster
     - This is done by just calculating the average of each points x and y co-ordinates
 4) If cluster centers have changed, repeat from step 2), else terminate and return final clusters
+--------------------------------------------------------------------------------------------------
+
+NOTES ON CHOOSING K:
+--------------------------------------------------------------------------------------------------
+In order to choose K,there are 2 main methods: 
+    - Elbow Method
+        - So assign your data to K clusters
+        - Calculate the total squared distance between each point and its cluster center (inertia)
+    - Silhouette Scores
+        - So assign your data to K clusters and assign cluster labels
+        - For each point:
+            - Compute a = average distance to points in its own cluster
+            - Compute b = average distance to points in the nearest other cluster
+            - Compute Silhouette Score = (b−a)/max(a, b)
 --------------------------------------------------------------------------------------------------
 
 NOTES ON DATA HANDLING:
@@ -52,4 +67,12 @@ Data Normalisation:
     3) Log Transformation
         - x' = log(x)
         - This is especially good for skewed data
+
+Data Subsets:
+- When taking random subsets of data, it is useful to use the random_state attribute to save the
+  seed 
+    - This means that whenever you call the subset with that seed, you will always get the same
+      subset
+    - This is important as it always a constant while etsting, allowing you to focus on errors
+      due to implementation logic, rather than dataset randomness
 --------------------------------------------------------------------------------------------------
