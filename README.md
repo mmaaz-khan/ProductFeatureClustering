@@ -2,7 +2,7 @@
 Utilising K-Means clustering to cluster products based on features, price, and reviews to recommend alternatives or group by similarity, using the Amazon Product dataset.
 I will attempt to develop the algorithms from scratch in order to solidify my learning and then use libraries such as scikitlearn to cross-reference my results
 
-* Whatever I learn and any notes I make are in the notes.txt file *
+* _Whatever I learn and any notes I make are in the notes.txt file_
 
 🔍 Project Description
 This project aims to apply K-Means clustering to group similar products on an e-commerce platform based on their features. In large-scale online stores, customers often face difficulty navigating through a vast number of products. By clustering products based on key attributes (such as price, ratings, reviews, and category), we can:
@@ -25,7 +25,7 @@ This project aims to apply K-Means clustering to group similar products on an e-
 
 🧰 Potential Features for Clustering
 - Price
-- Rating (e.g., 1–5 stars)
+- Rating (e.g., 1-5 stars)
 - Number of reviews
 - Discount %
 - Brand popularity
