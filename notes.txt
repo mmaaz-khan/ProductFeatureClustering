@@ -36,7 +36,7 @@ NOTES ON CHOOSING K:
 In order to choose K,there are 2 main methods: 
     - Elbow Method
         - So assign your data to K clusters
-        - Calculate the total squared distance between each point and its cluster center (inertia)
+        - Calculate the total squared distance between each point and its cluster center (inertia/WCSS)
     - Silhouette Scores
         - So assign your data to K clusters and assign cluster labels
         - For each point:
